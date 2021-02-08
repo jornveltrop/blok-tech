@@ -1,0 +1,11 @@
+# macOS Files
+.DS_Store
+
+# Node Modules
+node_modules/
+
+# Log files
+logs/
+
+# Uitzonderingen
+!logs/example.log
