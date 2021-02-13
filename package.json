@@ -2,9 +2,9 @@
   "name": "matching-app",
   "version": "1.0.0",
   "description": "Dit is de package voor project tech matching app",
-  "main": "js/index.js",
+  "main": "server/server.js",
   "scripts": {
-    "start": "nodemon js/index.js",
+    "start": "nodemon server/server.js",
     "test": "echo \"Error: geen test\" &&exit 1"
   },
   "repository": {
