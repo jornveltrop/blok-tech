@@ -8,5 +8,4 @@ starFilled.addEventListener("click", favorite);
 function favorite() {
   starFilled.classList.toggle("display");
   starUnfilled.classList.toggle("display");
-  console.log("TEST")
 };
