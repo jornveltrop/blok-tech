@@ -1,0 +1,221 @@
+html, body, * {
+    margin: 0;
+    padding: 0;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+    padding-inline-start: 0;
+    list-style-type: none;
+}
+
+html,body {
+    width: 100%;
+    height: 100%;
+}
+
+/* TYPO */
+h1,h2,h3,h4,h5,h6,p,a {
+    font-family: sans-serif;
+    text-decoration: none;
+}
+
+h1 {
+    font-size: 2em;
+}
+
+h2 {
+    font-size: 1em;
+    font-weight: normal;
+    text-align: center;
+}
+
+h3 {
+    font-size: 1.5em;
+}
+
+h4 {
+    font-size: 1em;
+    font-weight: normal;
+}
+
+a {
+    color: black;
+}
+
+
+
+/* Header */
+header {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #5dbb5d;
+    height: 180px;
+    width: 100%;
+    color: white;
+    text-align: center;
+    border-radius: 0% 0% 35px 35px;
+}
+
+nav {
+    display: flex;
+    height: 50px;
+    justify-content: space-between;
+}
+
+nav img {
+    height: 1.8em;
+    margin: 1em;
+}
+
+nav a:nth-of-type(2) img{
+    height: 1.5em;
+}
+
+header ul {
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    padding: 0em 3em;
+}
+
+header li {
+    align-self: center;
+}
+
+header li:nth-child(2) {
+    align-self: flex-start;
+    text-align: start;
+    margin-left: -19px;
+}
+
+header ul img {
+    height: 2em;
+}
+
+header ul a {
+    display: none;
+}
+
+.display {
+    display: inherit;
+}
+
+.displayNone {
+    display: none;
+}
+
+header > span {
+    align-self: center;
+    height: 7em;
+    width: 7em;
+    position: absolute;
+    bottom: -3.5em;
+    border-radius: 100%;
+    border: solid #5dbb5d 5px;
+}
+
+#profilePicture {
+    background-image: url(../images/profilePicture.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+
+
+/* Main */
+
+main {
+    padding: 0 1.5em;
+}
+
+main ul:first-of-type {
+    display: flex;
+    margin-top: 4em;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+main ul:first-of-type li {
+    display: flex;
+    align-items: baseline;
+    width: 100%;
+}
+
+main ul:first-of-type li img {
+    height: 1.5em;
+}
+
+main ul:first-of-type li:last-of-type {
+    justify-content: center;
+}
+
+main ul:first-of-type li:last-of-type h4 {
+    padding-left: .3em;
+}
+
+main > h3 {
+    margin-top: 1em;
+}
+
+main > p {
+    margin-top: .5em;
+}
+
+main ul:last-of-type {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1em;
+}
+
+main ul:last-of-type li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main ul:last-of-type span {
+    display: block;
+    position: relative;
+    height: 5em;
+    width: 5em;
+    border-radius: 100%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#fotoHond1 {
+    background-image: url(../images/dog1.jpg);
+}
+
+#fotoHond2 {
+    background-image: url(../images/dog2.jpg);
+    background-size: 180%;
+    background-position: 40% 50%;
+}
+
+main ul:last-of-type h5 {
+    margin-top: .7em;
+    font-size: 1em;
+}
+
+main > span:last-of-type {
+    display: flex;
+    justify-content: center;
+}
+
+main > span:last-of-type a {
+    display: inline-block;
+    font-weight: bold;
+    margin-top: 1.5em;
+    color: white;
+    background: #5dbb5d;
+    padding: .5em;
+    border-radius: 5px;
+    width: auto;
+    display: flex;
+}
