@@ -25,7 +25,28 @@ app.get('/maatjes', (req, res) => {
 
    //Handlebars
 app.get('/handlebars', (req, res) => {
-   res.render('index', { voornaam: 'Willemijn'});
+   res.render('index', { 
+      person: {
+         firstName: 'Willemijn',
+         lastName: 'de Vries',
+         age: '23',
+         residence: 'Amsterdam',
+      },
+
+      dogs: {
+         dogCounter: '2',
+         dogOne: {
+            name: 'Dido',
+            age: '2',
+            breed: 'Bordercollie',
+         },
+         dogTwo: {
+            name: 'Kaj',
+            age: '2',
+            breed: 'Bordercollie',
+         },
+      }
+   });
 });
 
 

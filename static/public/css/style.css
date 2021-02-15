@@ -183,6 +183,7 @@ main ul:last-of-type span {
     height: 5em;
     width: 5em;
     border-radius: 100%;
+    background-color: #5dbb5d;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
