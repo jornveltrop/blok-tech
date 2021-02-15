@@ -115,13 +115,14 @@ header > span {
     bottom: -3.5em;
     border-radius: 100%;
     border: solid #5dbb5d 5px;
+    background-color: #5dbb5d;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 #profilePicture {
     background-image: url(../images/profilePicture.jpg);
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
 }
 
 

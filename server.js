@@ -13,18 +13,18 @@ app.use(express.static('static/public'));
 
 
 //Routing
-app.get('/', (req, res) => {
-   res.send('Hello World')
-});
 app.get('/honden', (req, res) => {
    res.send('Een lijst met honden')
 });
 app.get('/maatjes', (req, res) => {
    res.send('Een lijst met maatjes')
 });
+app.get('/test/:textId', (req, res) => {
+   res.send('<h1>'+req.params['textId']+'</h1>')
+});
 
    //Handlebars
-app.get('/handlebars', (req, res) => {
+app.get('/profile', (req, res) => {
    res.render('index', { 
       person: {
          firstName: 'Willemijn',
