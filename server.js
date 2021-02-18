@@ -24,13 +24,13 @@ app.get('/test/:textId', (req, res) => {
 });
 
    //Handlebars
-app.get('/profile', (req, res) => {
+app.get('/', (req, res) => {
    res.render('index', { 
       person: {
          firstName: 'Willemijn',
          lastName: 'de Vries',
          age: '23',
-         residence: 'Amsterdam',
+         residence: 'Utrecht',
       },
 
       dogs: {
@@ -56,7 +56,7 @@ app.use(function (req, res, next) {
    res.status(404).send("Sorry deze pagina is niet beschikbaar!")
 }) 
 
-
+//LOG INFO SERVER
 app.listen(port, () => {
    console.log('Example app listening on port 3000!')
 });
