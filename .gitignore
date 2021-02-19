@@ -4,6 +4,9 @@
 # Node Modules
 node_modules/
 
+# Database gegevens
+*.env
+
 # Log files
 logs/
 
