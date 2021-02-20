@@ -1,7 +1,50 @@
 const express = require('express');
 const hbs = require('express-handlebars');
+const bodyParser = require('body-parser');
+const slug = require('slug');
 const app = express();
 const port = 3000;
+
+
+//Tijdelijk voor database
+const accounts = [
+
+   {  id: "willemijn-de-vries", 
+      firstName: "Willemijn", 
+      lastName: "de Vries", 
+      profileImg: "/images/profilePicture.jpg",
+      age: 23, 
+      city: "Amsterdam", 
+      about: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ac consectetur turpis. Sed cursus ante a sodales volutpat. Mauris pretium velit vel tellus finibus, in bibendum eros ullamcorper.",
+      dogsId: [1, 2],
+      dogsCount: "2"
+   },
+
+   {  id: "test1", 
+      firstName: "Test1", 
+      lastName: "AchtrnaamTest", 
+      age: 26, 
+      city: "Amsterdam2", 
+      about: "2Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ac consectetur turpis. Sed cursus ante a sodales volutpat. Mauris pretium velit vel tellus finibus, in bibendum eros ullamcorper.",
+      dogsId: [3, 4, 5]
+   }
+];
+
+const dogs = [
+      {
+         dogName: "Dido",
+         id: 1,
+         age: 2,
+         imageUrl: "/images/dog1.jpg"
+      },
+
+      {
+         dogName: "Kaj",
+         id: 2,
+         age: 2,
+         imageUrl: "/images/dog2.jpg",
+      }
+];
 
 
 //View engine setup
@@ -24,29 +67,14 @@ app.get('/test/:textId', (req, res) => {
 });
 
    //Handlebars
-app.get('/', (req, res) => {
-   res.render('index', { 
-      person: {
-         firstName: 'Willemijn',
-         lastName: 'de Vries',
-         age: '23',
-         residence: 'Utrecht',
-      },
-
-      dogs: {
-         dogCounter: '2',
-         dogOne: {
-            name: 'Dido',
-            age: '2',
-            breed: 'Bordercollie',
-         },
-         dogTwo: {
-            name: 'Kaj',
-            age: '2',
-            breed: 'Bordercollie',
-         },
-      }
-   });
+app.get('/profile/:userId', (req, res) => {
+   const account = accounts.find(account => account.id == req.params.userId);
+   if (account === undefined) {
+      res.status(404).send("Sorry deze pagina is niet beschikbaar!")
+   }
+   else {
+      res.render('profile', {title:'Profiel test', account, dogs});
+   }
 });
 
 

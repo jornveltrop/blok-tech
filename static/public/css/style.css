@@ -107,7 +107,7 @@ header ul a {
     display: none;
 }
 
-header > span {
+header > img {
     align-self: center;
     height: 7em;
     width: 7em;
@@ -116,9 +116,8 @@ header > span {
     border-radius: 100%;
     border: solid #5dbb5d 5px;
     background-color: #5dbb5d;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
+    object-position: center;
+    object-fit: cover;
 }
 
 #profilePicture {
@@ -178,26 +177,19 @@ main ul:last-of-type li {
     align-items: center;
 }
 
-main ul:last-of-type span {
+main ul:last-of-type img {
     display: block;
     position: relative;
     height: 5em;
     width: 5em;
     border-radius: 100%;
     background-color: #5dbb5d;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
+    object-fit: cover;
+    object-position: 50% 50%;
 }
 
-#fotoHond1 {
-    background-image: url(../images/dog1.jpg);
-}
-
-#fotoHond2 {
-    background-image: url(../images/dog2.jpg);
-    background-size: 180%;
-    background-position: 40% 50%;
+main ul:last-of-type img:nth-child(2) {
+    object-position: 40% 50%;
 }
 
 main ul:last-of-type h5 {
