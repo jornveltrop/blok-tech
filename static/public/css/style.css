@@ -213,3 +213,15 @@ main > span:last-of-type a {
     width: auto;
     display: flex;
 }
+
+/* Snelle homepage voor nav feature */
+
+.bgGreen {
+    padding: 2em;;
+    background-color: #5dbb5d;
+}
+
+.bgGreen a {
+    color: white;
+    text-decoration: underline;
+}
