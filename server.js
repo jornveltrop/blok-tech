@@ -17,8 +17,22 @@ const url = `mongodb+srv://jornveltrop:${pwDB}@bloktech.jpjje.mongodb.net/blokTe
 
 MongoClient.connect(url, function(err, client) {
   assert.equal(null, err);
-  client.close();
+  const db = client.db("test");
+
+   db.collection('inventory').insertOne({
+      item: "canvas",
+      qty: 100,
+      tags: ["cotton"],
+      size: { h: 28, w: 35.5, uom: "cm" }
+   })
+   .then(function(result) {
+      // process result
+   })
+   
+   client.close();
 });
+
+
 
 //Tijdelijk voor database
 const accounts = [
