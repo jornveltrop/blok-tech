@@ -37,6 +37,7 @@ npm install
 ```
 
 ## Releases
+--
 
 ## Author
 De maker van deze app is: [*Jorn Veltrop*](https://github.com/jornveltrop)
