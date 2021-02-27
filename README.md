@@ -16,18 +16,11 @@
 ## Features
 |                                                            |     |
 | ---------------------------------------------------------- | --- |
-| Automatic QR Refresh                                       | ✔   |
-| Send **text, image, video, audio and docs**                | ✔   |
-| Get **contacts, chats, groups, group members, Block List** | ✔   |
-| Send contacts                                              | ✔   |
-| Send stickers                                              | ✔   |
-| Send stickers GIF                                          | ✔   |
-| Multiple Sessions                                          | ✔   |
-| Forward Messages                                           | ✔   |
-| Receive message                                            | ✔   |
-| insert user section                                        | ✔   |
-| 📍 Send location!!                                         | ✔   |
-| 🕸🕸 **and much more**                                       | ✔   |
+| 🙋‍♂️ Maak een mooi profiel!                                   | ✔   |
+| 🐶 Zoek op basis van jouw favoriete honden                  | ✔   |
+| 💬 Chat met andere baasjes                                  | ✔   |
+| 📍 Kies een locatie om af te spreken                        | ✔   |
+|  🐾 **en nog veel meer!**                                   | ✔   |
 
 ## Documentation
 De documentatie van deze app is te vinden in de [wiki](https://github.com/jornveltrop/blok-tech/wiki) van deze repository.
