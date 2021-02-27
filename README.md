@@ -1,1 +1,1 @@
-# ! <img src="images/header.png" width="600" alt="banner"> [banner]
+# <img src="images/header.png" width="100%" alt="banner">
