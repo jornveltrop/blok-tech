@@ -3,8 +3,22 @@ const hbs = require('express-handlebars');
 const bodyParser = require('body-parser');
 const slug = require('slug');
 const app = express();
-const port = 3000;
 
+//ENV Setup
+require('dotenv').config()
+let port = process.env.PORT;
+let host = process.env.HOST;
+let pwDB = process.env.PWDB;
+
+// DB Setup
+const MongoClient = require('mongodb').MongoClient;
+const assert = require('assert');
+const url = `mongodb+srv://jornveltrop:${pwDB}@bloktech.jpjje.mongodb.net/blokTech?retryWrites=true`;
+
+MongoClient.connect(url, function(err, client) {
+  assert.equal(null, err);
+  client.close();
+});
 
 //Tijdelijk voor database
 const accounts = [
@@ -110,6 +124,6 @@ app.use(function (req, res, next) {
 }) 
 
 //LOG INFO SERVER
-app.listen(port, () => {
-   console.log('Example app listening on port 3000!')
+app.listen(port, host, () => {
+   console.log(`Server is listening on ${host}:${port}`);
 });
