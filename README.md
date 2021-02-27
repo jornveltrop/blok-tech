@@ -16,15 +16,15 @@
 ## Features
 
 ## Documentation
-link naar wiki
+De documentatie van deze app is te vinden in de [wiki](https://github.com/jornveltrop/blok-tech/wiki) van deze repository.
 
 ## Installing
-Clone deze repository naar jouw lokale folder 
+Clone deze repository naar jouw lokale folder.
 ```
-git clone https://github.com/damian1997/Project-Tech.git
+git clone https://github.com/jornveltrop/blok-tech.git
 ```
 
-Installeer de bijbehorende packages
+Installeer de bijbehorende packages.
 ```
 npm install
 ```
@@ -35,7 +35,7 @@ npm install
 De maker van deze app is: [*Jorn Veltrop*](https://github.com/jornveltrop)
 
 ## Contributing
-Als je wilt bijdragen aan deze app kun je dat doen door middel van een [Issue](https://github.com/jornveltrop/blok-tech/issues)
+Als je wilt bijdragen aan deze app kun je dat doen door middel van een [Issue](https://github.com/jornveltrop/blok-tech/issues).
 
 ## License
-Hier vind je de [license](https://github.com/damian1997/Project-Tech/blob/main/LICENSE) die van toepassing is op deze app
+Hier vind je de [license](https://github.com/jornveltrop/blok-tech/blob/main/LICENSE) die van toepassing is op deze app.
