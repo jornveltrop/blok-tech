@@ -16,11 +16,11 @@
 ## Features
 |                                                            |     |
 | ---------------------------------------------------------- | --- |
-| 🙋‍♂️    Maak een mooi profiel!                                  | ✔   |
-| 🐶    Zoek op basis van jouw favoriete honden                 | ✔   |
-| 💬    Chat met andere baasjes                                 | ✔   |
-| 📍    Kies een locatie om af te spreken                       | ✔   |
-| 🐾    **en nog veel meer!**                                  | ✔   |
+| 🙋‍♂️⠀⠀Maak een mooi profiel!                                  | ✔   |
+| 🐶⠀⠀Zoek op basis van jouw favoriete honden                 | ✔   |
+| 💬⠀⠀Chat met andere baasjes                                 | ✔   |
+| 📍⠀⠀Kies een locatie om af te spreken                       | ✔   |
+| 🐾⠀⠀**en nog veel meer!**                                  | ✔   |
 
 ## Documentation
 De documentatie van deze app is te vinden in de [wiki](https://github.com/jornveltrop/blok-tech/wiki) van deze repository.
