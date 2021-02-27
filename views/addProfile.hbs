@@ -1,0 +1,27 @@
+<body class="addProfile">
+    <main>
+        <form action="/addProfile" method="post">
+            <label for="fname">Voornaam:</label>
+            <input id="fname" type="text" name="fname" placeholder="Lieke" required>
+
+            <label for="lname">Achternaam:</label>
+            <input id="lname" type="text" name="lname" placeholder="de Groot" required>
+
+            <label for="city">Woonplaats:</label>
+            <input id="city" type="text" name="city" placeholder="Amsterdam" required>
+
+            <label for="age">Leeftijd:</label>
+            <input id="age" type="number" name="age" placeholder="20" required>
+            
+            <label for="dogsCount">Aantal honden:</label>
+            <input id="dogsCount" type="number" name="dogsCount" placeholder="1" required>
+
+            <label for="about">Over mij:</label>
+            <textarea name="about" id="about" cols="30" rows="10" placeholder="Vertel iets over jezelf!"></textarea>
+
+            <input type="submit" value="Maak aan">
+        </form>
+    </main>
+
+    <script src="js/script.js"></script>
+</body>

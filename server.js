@@ -16,16 +16,18 @@ const accounts = [
       age: 23, 
       city: "Amsterdam", 
       about: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ac consectetur turpis. Sed cursus ante a sodales volutpat. Mauris pretium velit vel tellus finibus, in bibendum eros ullamcorper.",
-      dogsId: [1, 2],
-      dogsCount: "2"
+      dogsCount: "2",
+      dogsId: [1, 2]
    },
 
-   {  id: "test1", 
-      firstName: "Test1", 
-      lastName: "AchtrnaamTest", 
+   {  id: "erik-diep", 
+      firstName: "Erik", 
+      lastName: "Diep", 
+      profileImg: "/images/profilePicture.jpg",
       age: 26, 
       city: "Amsterdam2", 
       about: "2Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ac consectetur turpis. Sed cursus ante a sodales volutpat. Mauris pretium velit vel tellus finibus, in bibendum eros ullamcorper.",
+      dogsCount: "3",
       dogsId: [3, 4, 5]
    }
 ];
@@ -46,6 +48,8 @@ const dogs = [
       }
 ];
 
+const breeds = ["Border Collie", "German Shepherd", "Cavoodle", "Golden Retriever", "Labrador"]
+
 
 //View engine setup
 app.engine('hbs', hbs({extname: 'hbs', defaultLayout: 'layout', layoutsDir: 'views/layouts/'}));
@@ -53,9 +57,11 @@ app.set('view engine', 'hbs');
 
 //Static
 app.use(express.static('static/public'));
+//BodyParser
+app.use(bodyParser.urlencoded({ extended: false }))
 
 
-//Routing
+//Routing test
 app.get('/honden', (req, res) => {
    res.send('Een lijst met honden')
 });
@@ -66,7 +72,12 @@ app.get('/test/:textId', (req, res) => {
    res.send('<h1>'+req.params['textId']+'</h1>')
 });
 
-   //Handlebars
+
+//Routing Handlebars 
+app.get('/', (req, res) => {
+   res.render('index', {title:'Home', accounts});
+});
+
 app.get('/profile/:userId', (req, res) => {
    const account = accounts.find(account => account.id == req.params.userId);
    if (account === undefined) {
@@ -75,6 +86,20 @@ app.get('/profile/:userId', (req, res) => {
    else {
       res.render('profile', {title:'Profiel test', account, dogs});
    }
+});
+
+app.get('/addProfile', (req, res) => {
+   res.render('addProfile', {title:'Profiel toevoegen'});
+});
+app.post('/addProfile', (req,res) => {
+   const id = slug(req.body.fname + req.body.lname);
+   const account = {"id": id, "firstName": req.body.fname, "lastName": req.body.lname, "city": req.body.city, "age": req.body.age, "dogsCount": req.body.dogsCount, "about": req.body.about};
+   accounts.push(account);
+   res.render('profile', {title: "New profile", account})
+ });
+
+app.get('/addDog', (req, res) => {
+   res.render('addDog', {title:"Hond toevoegen", breeds});
 });
 
 
