@@ -14,6 +14,20 @@
 > Hondenmaatje is een app om baasjes van honden met elkaar te matchen om samen een keer de honden uit te laten.
 
 ## Features
+|                                                            |     |
+| ---------------------------------------------------------- | --- |
+| Automatic QR Refresh                                       | ✔   |
+| Send **text, image, video, audio and docs**                | ✔   |
+| Get **contacts, chats, groups, group members, Block List** | ✔   |
+| Send contacts                                              | ✔   |
+| Send stickers                                              | ✔   |
+| Send stickers GIF                                          | ✔   |
+| Multiple Sessions                                          | ✔   |
+| Forward Messages                                           | ✔   |
+| Receive message                                            | ✔   |
+| insert user section                                        | ✔   |
+| 📍 Send location!!                                         | ✔   |
+| 🕸🕸 **and much more**                                       | ✔   |
 
 ## Documentation
 De documentatie van deze app is te vinden in de [wiki](https://github.com/jornveltrop/blok-tech/wiki) van deze repository.
