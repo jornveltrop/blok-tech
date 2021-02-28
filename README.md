@@ -11,7 +11,7 @@
 * [License](#license)
 
 ## About
-> Hondenmaatje is een app om baasjes van honden met elkaar te matchen om samen een keer de honden uit te laten.
+> **Hondenmaatje** is een app om baasjes van honden met elkaar te matchen om samen een keer de honden uit te laten.
 
 ## Features
 |                                                            |     |
@@ -37,7 +37,8 @@ npm install
 ```
 
 ## Releases
---
+
+Hier komen de verschillende releases
 
 ## Author
 De maker van deze app is: [*Jorn Veltrop*](https://github.com/jornveltrop)
