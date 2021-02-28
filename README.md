@@ -11,7 +11,9 @@
 * [License](#license)
 
 ## About
-> **Hondenmaatje** is een app om baasjes van honden met elkaar te matchen om samen een keer de honden uit te laten.
+> **Hondenmaatje** is een app voor baasjes van een hond die nieuwe mensen willen ontmoeten. Dit door gematcht te worden aan een ander baasje van een hond, zodat ze af en toe samen met de honden een stukje kunnen gaan wandelen.
+
+
 
 ## Features
 |                                                            |     |
