@@ -2,7 +2,7 @@
 const starUnfilled = document.querySelector(".profile header ul a:first-of-type");
 const starFilled = document.querySelector(".profile header ul a:last-of-type");
 
-if(document.URL.indexOf("/profile/") > -1) { 
+if(document.URL.indexOf("/profile/") > -1 || document.URL.indexOf("/profile.html") > -1) { 
   starUnfilled.addEventListener("click", favorite);
   starFilled.addEventListener("click", favorite);
 
