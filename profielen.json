@@ -1,0 +1,4 @@
+[
+  { "id": "willemijn-de-vries", "firstName": "Willemijn", "lastName": "de Vries", "profileImg": "/images/profilePicture.jpg", "age": 23, "city": "Amsterdam", "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ac consectetur turpis. Sed cursus ante a sodales volutpat. Mauris pretium velit vel tellus finibus, in bibendum eros ullamcorper.", "dogsCount": "2", "dogsId": [1, 2] },
+  { "id": "erik-diep", "firstName": "Erik", "lastName": "Diep", "profileImg": "/images/profilePicture.jpg", "age": 26, "city": "Amsterdam2", "about": "2Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ac consectetur turpis. Sed cursus ante a sodales volutpat. Mauris pretium velit vel tellus finibus, in bibendum eros ullamcorper.", "dogsCount": "3", "dogsId": [3, 4, 5] }
+]

@@ -2,7 +2,7 @@
 const starUnfilled = document.querySelector(".profile header ul a:first-of-type");
 const starFilled = document.querySelector(".profile header ul a:last-of-type");
 
-if(document.URL.indexOf("/profile/") > -1 || document.URL.indexOf("/profile.html") > -1) { 
+if (document.URL.indexOf("/profile/") > -1 || document.URL.indexOf("/profile.html") > -1) { 
   starUnfilled.addEventListener("click", favorite);
   starFilled.addEventListener("click", favorite);
 
@@ -15,7 +15,7 @@ if(document.URL.indexOf("/profile/") > -1 || document.URL.indexOf("/profile.html
 
 // Autocomplete hondenras
 // bron: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_autocomplete
-if(document.URL.indexOf("/addDog") > -1) { 
+if (document.URL.indexOf("/addDog") > -1) { 
   function autocomplete(inp, arr) {
     /*the autocomplete function takes two arguments,
     the text field element and an array of possible autocompleted values:*/

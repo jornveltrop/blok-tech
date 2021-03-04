@@ -2,81 +2,35 @@ const express = require('express');
 const hbs = require('express-handlebars');
 const bodyParser = require('body-parser');
 const slug = require('slug');
+const { MongoClient } = require('mongodb')
 const app = express();
 
 //ENV Setup
 require('dotenv').config()
-let port = process.env.PORT;
-let host = process.env.HOST;
-let pwDB = process.env.PWDB;
+const port = process.env.PORT;
+const host = process.env.HOST;
+const pwDB = process.env.PWDB;
+const uri = process.env.URI;
+const dbName = process.env.DBNAME;
 
 // DB Setup
-const MongoClient = require('mongodb').MongoClient;
-const assert = require('assert');
-const url = `mongodb+srv://jornveltrop:${pwDB}@bloktech.jpjje.mongodb.net/blokTech?retryWrites=true`;
+let db = null;
 
-MongoClient.connect(url, function(err, client) {
-  assert.equal(null, err);
-  const db = client.db("test");
-
-   db.collection('inventory').insertOne({
-      item: "canvas",
-      qty: 100,
-      tags: ["cotton"],
-      size: { h: 28, w: 35.5, uom: "cm" }
+async function connectDB() {
+   const options = { useUnifiedTopology: true };
+   const client = new MongoClient(uri, options)
+   await client.connect();
+   db = await client.db(dbName)
+};
+connectDB()
+   .then(() => {
+      //Succesvolle verbinding
+      console.log('We have a connection to Mongo!')
    })
-   .then(function(result) {
-      // process result
-   })
-   
-   client.close();
-});
-
-
-
-//Tijdelijk voor database
-const accounts = [
-
-   {  id: "willemijn-de-vries", 
-      firstName: "Willemijn", 
-      lastName: "de Vries", 
-      profileImg: "/images/profilePicture.jpg",
-      age: 23, 
-      city: "Amsterdam", 
-      about: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ac consectetur turpis. Sed cursus ante a sodales volutpat. Mauris pretium velit vel tellus finibus, in bibendum eros ullamcorper.",
-      dogsCount: "2",
-      dogsId: [1, 2]
-   },
-
-   {  id: "erik-diep", 
-      firstName: "Erik", 
-      lastName: "Diep", 
-      profileImg: "/images/profilePicture.jpg",
-      age: 26, 
-      city: "Amsterdam2", 
-      about: "2Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ac consectetur turpis. Sed cursus ante a sodales volutpat. Mauris pretium velit vel tellus finibus, in bibendum eros ullamcorper.",
-      dogsCount: "3",
-      dogsId: [3, 4, 5]
-   }
-];
-
-const dogs = [
-      {
-         dogName: "Dido",
-         id: 1,
-         age: 2,
-         imageUrl: "/images/dog1.jpg"
-      },
-
-      {
-         dogName: "Kaj",
-         id: 2,
-         age: 2,
-         imageUrl: "/images/dog2.jpg",
-      }
-];
-
-const breeds = ["Border Collie", "German Shepherd", "Cavoodle", "Golden Retriever", "Labrador"]
+   .catch( error => {
+      //Error bij verbinden
+      console.log(error)
+   });
 
 
 //View engine setup
@@ -85,6 +39,7 @@ app.set('view engine', 'hbs');
 
 //Static
 app.use(express.static('static/public'));
+
 //BodyParser
 app.use(bodyParser.urlencoded({ extended: false }))
 
@@ -102,28 +57,36 @@ app.get('/test/:textId', (req, res) => {
 
 
 //Routing Handlebars 
-app.get('/', (req, res) => {
-   res.render('index', {title:'Home', accounts});
+app.get('/', async (req, res) => {
+   let profielen = {};
+   profielen = await db.collection('profielen').find().toArray();
+   res.render('index', {title:'Home', profielen});
 });
 
-app.get('/profile/:userId', (req, res) => {
-   const account = accounts.find(account => account.id == req.params.userId);
-   if (account === undefined) {
+app.get('/profile/:userId', async (req, res) => {
+   let profielen = {};
+   profielen = await db.collection('profielen').find().toArray();
+
+   let dogs = {};
+   dogs = await db.collection('dogs').find().toArray();
+
+   const profiel = profielen.find(profiel => profiel.id == req.params.userId);
+   if (profiel === undefined) {
       res.status(404).send("Sorry deze pagina is niet beschikbaar!")
    }
    else {
-      res.render('profile', {title:'Profiel test', account, dogs});
+      res.render('profile', {title:'Profiel test', profiel, dogs});
    }
 });
 
 app.get('/addProfile', (req, res) => {
    res.render('addProfile', {title:'Profiel toevoegen'});
 });
-app.post('/addProfile', (req,res) => {
+app.post('/addProfile', async (req,res) => {
    const id = slug(req.body.fname + req.body.lname);
-   const account = {"id": id, "firstName": req.body.fname, "lastName": req.body.lname, "city": req.body.city, "age": req.body.age, "dogsCount": req.body.dogsCount, "about": req.body.about};
-   accounts.push(account);
-   res.render('profile', {title: "New profile", account})
+   const profiel = {"id": id, "firstName": req.body.fname, "lastName": req.body.lname, "city": req.body.city, "age": req.body.age, "dogsCount": req.body.dogsCount, "about": req.body.about};
+   await db.collection('profielen').insertOne(profiel);
+   res.render('profile', {title: "New profile", profiel})
  });
 
 app.get('/addDog', (req, res) => {
