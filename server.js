@@ -1,5 +1,5 @@
 //ENV Setup
-require('env').config()
+require('dotenv').config()
 const port = process.env.PORT;
 const host = process.env.HOST;
 const pwDB = process.env.PWDB;
