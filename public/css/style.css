@@ -358,6 +358,7 @@ input[type=submit] {
     display: block;
     margin: auto;
     margin-top: 2em;
+    margin-bottom: 3em;
     background-color: #2c4b2c;
     color: white;
     padding: .8em 1.5em;
@@ -366,6 +367,9 @@ input[type=submit] {
     cursor: pointer;
     font-weight: bold;
     transition: background-color .25s ease, color .25s ease;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 }
   
 input[type=submit]:hover {
