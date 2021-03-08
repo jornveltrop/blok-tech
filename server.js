@@ -1,17 +1,20 @@
+//ENV Setup
+require('env').config()
+const port = process.env.PORT;
+const host = process.env.HOST;
+const pwDB = process.env.PWDB;
+const uri = process.env.URI;
+const dbName = process.env.DBNAME;
+const TEST = process.env.TEST;
+
+console.log(TEST);
+
 const express = require('express');
 const hbs = require('express-handlebars');
 const bodyParser = require('body-parser');
 const slug = require('slug');
 const { MongoClient } = require('mongodb')
 const app = express();
-
-//ENV Setup
-require('dotenv').config()
-const port = process.env.PORT;
-const host = process.env.HOST;
-const pwDB = process.env.PWDB;
-const uri = process.env.URI;
-const dbName = process.env.DBNAME;
 
 // DB Setup
 let db = null;
