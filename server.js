@@ -1,7 +1,6 @@
 //ENV Setup
 require('dotenv').config()
 const port = process.env.PORT || 3000;
-const host = process.env.HOST || "localhost";
 const uri = process.env.URI;
 const dbName = process.env.DBNAME;
 const test = process.env.TEST;
@@ -101,8 +100,3 @@ app.get('/addDog', (req, res) => {
 app.use(function (req, res, next) {
    res.status(404).send("Sorry deze pagina is niet beschikbaar!")
 }) 
-
-//LOG INFO SERVER
-app.listen(port, host, () => {
-   console.log(`Server is listening on ${host}:${port}`);
-});
