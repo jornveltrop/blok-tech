@@ -1,13 +1,12 @@
 //ENV Setup
 require('dotenv').config()
-const port = process.env.PORT;
-const host = process.env.HOST;
-const pwDB = process.env.PWDB;
+const port = process.env.PORT || 3000;
+const host = process.env.HOST || "localhost";
 const uri = process.env.URI;
 const dbName = process.env.DBNAME;
-const TEST = process.env.TEST;
+const test = process.env.TEST;
 
-console.log(TEST);
+console.log(test);
 
 const express = require('express');
 const hbs = require('express-handlebars');
