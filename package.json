@@ -4,7 +4,7 @@
   "description": "Dit is de package voor project tech matching app",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js",
+    "start": "node server.js",
     "test": "echo \"Error: geen test\" &&exit 1"
   },
   "repository": {

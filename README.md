@@ -28,14 +28,19 @@
 De documentatie van deze app is te vinden in de [wiki](https://github.com/jornveltrop/blok-tech/wiki) van deze repository.
 
 ## Installing
-Clone deze repository naar jouw lokale folder.
+Clone deze repository naar jouw lokale folder
 ```
 git clone https://github.com/jornveltrop/blok-tech.git
 ```
 
-Installeer de bijbehorende packages.
+Installeer de bijbehorende packages
 ```
 npm install
+```
+
+Start de server
+```
+npm start
 ```
 
 ## Releases
