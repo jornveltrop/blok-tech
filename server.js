@@ -100,3 +100,8 @@ app.get('/addDog', (req, res) => {
 app.use(function (req, res, next) {
    res.status(404).send("Sorry deze pagina is niet beschikbaar!")
 }) 
+
+//LOG INFO SERVER
+app.listen(port, () => {
+   console.log(`Server is listening on port:${port}`);
+});
