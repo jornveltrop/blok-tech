@@ -11,6 +11,7 @@ const express = require('express');
 const hbs = require('express-handlebars');
 const bodyParser = require('body-parser');
 const slug = require('slug');
+const multer = require('multer');
 const { MongoClient } = require('mongodb')
 const app = express();
 
@@ -39,7 +40,7 @@ app.engine('hbs', hbs({extname: 'hbs', defaultLayout: 'layout', layoutsDir: 'vie
 app.set('view engine', 'hbs');
 
 //Static
-app.use(express.static('static/public'));
+app.use(express.static('./public'));
 
 //BodyParser
 app.use(bodyParser.urlencoded({ extended: false }))
