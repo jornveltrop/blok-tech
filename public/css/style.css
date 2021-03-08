@@ -242,6 +242,10 @@ main > span:last-of-type a {
     color: white;
 }
 
+.addProfile header {
+    height: auto;
+}
+
 .addProfile nav {
     justify-content: flex-start;
     align-items: center;

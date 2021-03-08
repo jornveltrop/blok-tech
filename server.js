@@ -5,8 +5,8 @@ const uri = process.env.URI;
 const dbName = process.env.DBNAME;
 const test = process.env.TEST;
 
-console.log(test);
 
+//Setup packages
 const express = require('express');
 const hbs = require('express-handlebars');
 const bodyParser = require('body-parser');
@@ -14,6 +14,7 @@ const slug = require('slug');
 const multer = require('multer');
 const { MongoClient } = require('mongodb')
 const app = express();
+
 
 // DB Setup
 let db = null;
@@ -59,7 +60,6 @@ const storage = multer.diskStorage({
    }
 });
 
-//upload Multer
 const upload = multer({
    storage: storage,
    limits: {
@@ -68,26 +68,16 @@ const upload = multer({
 });
 
 
-
-//Routing test
-app.get('/honden', (req, res) => {
-   res.send('Een lijst met honden')
-});
-app.get('/maatjes', (req, res) => {
-   res.send('Een lijst met maatjes')
-});
-app.get('/test/:textId', (req, res) => {
-   res.send('<h1>'+req.params['textId']+'</h1>')
-});
-
-
 //Routing Handlebars 
+
+//Home - simple overview profiles
 app.get('/', async (req, res) => {
    let profielen = {};
    profielen = await db.collection('profielen').find().toArray();
    res.render('index', {title:'Home', profielen});
 });
 
+//Profile page
 app.get('/profile/:userId', async (req, res) => {
    let profielen = {};
    profielen = await db.collection('profielen').find().toArray();
@@ -104,12 +94,12 @@ app.get('/profile/:userId', async (req, res) => {
    }
 });
 
+//Add a profile
 app.get('/addProfile', (req, res) => {
    res.render('addProfile', {title:'Profiel toevoegen'});
 });
 
 app.post('/addProfile', upload.single('prPic'), async (req,res) => {
-   console.log(req.file);
    const id = slug(req.body.fname + req.body.lname);
    const prPicPath = "uploads/" + req.file.filename;
    const profiel = {"id": id, "firstName": req.body.fname, "lastName": req.body.lname, 'profileImg': prPicPath, "city": req.body.city, "age": req.body.age, "dogsCount": req.body.dogsCount, "about": req.body.about};
@@ -117,16 +107,12 @@ app.post('/addProfile', upload.single('prPic'), async (req,res) => {
    res.render('profile', {title: "New profile", profiel})
  });
 
-app.get('/addDog', (req, res) => {
-   res.render('addDog', {title:"Hond toevoegen", breeds});
-});
-
-
 
 //404
 app.use(function (req, res, next) {
    res.status(404).send("Sorry deze pagina is niet beschikbaar!")
 }) 
+
 
 //LOG INFO SERVER
 app.listen(port, () => {
