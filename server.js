@@ -39,11 +39,34 @@ connectDB()
 app.engine('hbs', hbs({extname: 'hbs', defaultLayout: 'layout', layoutsDir: 'views/layouts/'}));
 app.set('view engine', 'hbs');
 
-//Static
+
+//Static folder
 app.use(express.static('./public'));
+
 
 //BodyParser
 app.use(bodyParser.urlencoded({ extended: false }))
+
+
+//Multer setup
+const storage = multer.diskStorage({
+   destination: function (req, file, callback) {
+      callback(null, './public/uploads');
+   },
+
+   filename: function (req, file, callback){
+      callback(null, Date.now() + "-" + file.originalname)
+   }
+});
+
+//upload Multer
+const upload = multer({
+   storage: storage,
+   limits: {
+      fileSize: 1024 * 1024 * 3,
+   },
+});
+
 
 
 //Routing test
@@ -84,9 +107,12 @@ app.get('/profile/:userId', async (req, res) => {
 app.get('/addProfile', (req, res) => {
    res.render('addProfile', {title:'Profiel toevoegen'});
 });
-app.post('/addProfile', async (req,res) => {
+
+app.post('/addProfile', upload.single('prPic'), async (req,res) => {
+   console.log(req.file);
    const id = slug(req.body.fname + req.body.lname);
-   const profiel = {"id": id, "firstName": req.body.fname, "lastName": req.body.lname, "city": req.body.city, "age": req.body.age, "dogsCount": req.body.dogsCount, "about": req.body.about};
+   const prPicPath = "uploads/" + req.file.filename;
+   const profiel = {"id": id, "firstName": req.body.fname, "lastName": req.body.lname, 'profileImg': prPicPath, "city": req.body.city, "age": req.body.age, "dogsCount": req.body.dogsCount, "about": req.body.about};
    await db.collection('profielen').insertOne(profiel);
    res.render('profile', {title: "New profile", profiel})
  });

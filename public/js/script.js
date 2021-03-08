@@ -1,8 +1,17 @@
+if (document.URL.indexOf("/addProfile") > -1 ) { 
+  // Preview uploaded profilePic
+  const prPic = document.querySelector("#prPic");
+  prPic.addEventListener("change", previewProfilePic);
+  function previewProfilePic() {
+    profilePic.src=URL.createObjectURL(event.target.files[0]);
+  }
+}
+
 // Toggle favorite
 const starUnfilled = document.querySelector(".profile header ul a:first-of-type");
 const starFilled = document.querySelector(".profile header ul a:last-of-type");
 
-if (document.URL.indexOf("/profile/") > -1 || document.URL.indexOf("/profile.html") > -1) { 
+if (document.URL.indexOf("/profile/") > -1 || document.URL.indexOf("/addProfile") > -1) { 
   starUnfilled.addEventListener("click", favorite);
   starFilled.addEventListener("click", favorite);
 

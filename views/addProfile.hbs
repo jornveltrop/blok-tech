@@ -1,6 +1,27 @@
-<body class="addProfile">
+<body class="addProfile bgGreen">
+    <head>
+        <nav>
+            <a href="../">
+                <img src="/images/arrowLeft.svg">
+            </a>
+            <h2>Profiel toevoegen</h2>
+        </nav>
+    </head>
+    
     <main>
-        <form action="/addProfile" method="post">
+        <form action="/addProfile" method="post" enctype="multipart/form-data">
+            <label for="prPic" class="prPic">
+                <div>
+                    <img id="profilePic" src="/images/blankProfile.png">
+                    <span><img src="/images/upload.svg"></span>
+                </div>
+                <span>
+                    <img src="/images/camera.svg">
+                    <p>Profiel foto wijzigen</p>   
+                </span>
+            </label>
+            <input id="prPic" type="file" name="prPic" accept="image/*">
+
             <label for="fname">Voornaam:</label>
             <input id="fname" type="text" name="fname" placeholder="Lieke" required>
 
@@ -19,9 +40,9 @@
             <label for="about">Over mij:</label>
             <textarea name="about" id="about" cols="30" rows="10" placeholder="Vertel iets over jezelf!"></textarea>
 
-            <input type="submit" value="Maak aan">
+            <input type="submit" value="Opslaan">
         </form>
     </main>
 
-    <script src="/js/script.js"></script>
+    <script src="./js/script.js"></script>
 </body>

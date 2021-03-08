@@ -201,9 +201,9 @@ main > span:last-of-type a {
     font-weight: bold;
     margin-top: 1.5em;
     color: white;
-    background: #5dbb5d;
-    padding: .5em;
-    border-radius: 5px;
+    background: #2c4b2c;
+    padding: .6em 1em;
+    border-radius: 2em;
     width: auto;
     display: flex;
 }
@@ -224,17 +224,130 @@ main > span:last-of-type a {
     text-decoration: underline;
 }
 
+.bgGreen li:last-of-type {
+    margin-top: 3em;
+}
+
+.bgGreen li:last-of-type a {
+    background-color: #2c4b2c;
+    padding: .6em 1.2em;
+    border-radius: 2em;
+    
+    text-decoration: none;
+}
+
 /* addProfile */
+.addProfile {
+    padding: 0;
+    color: white;
+}
+
+.addProfile nav {
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.addProfile h2 {
+    font-size: 1.2em;
+    margin: auto;
+    font-weight: 600;
+}
+
 form {
     margin-top: 1em;
+}
+
+.prPic {
+    display: flex;
+    width: fit-content;
+    align-items: center;
+}
+
+.prPic > span {
+    display: flex;
+    align-items: center;
+    height: fit-content;
+    font-size: .9em;
+    margin-left: 1.5em;
+    background-color: #2c4b2c;
+    padding: .6em 1.2em;
+    border-radius: 2.4em;
+    cursor: pointer;
+}
+
+.prPic > span img {
+    height: 1em;
+}
+
+.prPic p {
+    display: inline-block;
+    height: fit-content;
+    margin-left: 1em;
+    text-decoration: underline;
+}
+
+.prPic div {
+    position: relative;
+    height: 6em;
+    width: 6em;
+    border-radius: 5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.prPic div > img {
+    height: 6em;
+    width: 6em;
+    object-fit: cover;
+    border-radius: 5em;
+    transition: opacity ease .4s;
+}
+
+.prPic div span {
+    background-color: hsla(0, 0%, 0%, 0.5);
+    width: 6em;
+    height: 6em;
+    border-radius: 5em;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity ease .2s;
+    cursor: pointer;
+}
+
+.prPic div span > img {
+    position: absolute;
+    height: 2.3em;
+    pointer-events: none;
+}
+
+.prPic div span:hover {
+    opacity: 1;
+    transition: opacity ease .4s;
+}
+
+
+input[name="prPic"] {
+    display: none;
 }
 
 input[type=text], input[type=number], textarea, select {
     width: 80%;
     padding: .8em 1em;
     display: block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    border: none;
+    border-radius: 1em;
+    color: #2c4b2c;
+    font-weight: 500;
+    outline-color: #2c4b2c;
+}
+
+input[type=text]::placeholder, input[type=number]::placeholder, textarea::placeholder, select::placeholder {
+    color: hsla(120, 26%, 23%, .7);
+    font-weight: 500;
 }
 
 textarea {
@@ -242,30 +355,33 @@ textarea {
 }
   
 input[type=submit] {
-    width: auto;
-    margin-top: 1em;
-    background-color: #5dbb5d;
+    display: block;
+    margin: auto;
+    margin-top: 2em;
+    background-color: #2c4b2c;
     color: white;
-    padding: .8em 1em;
+    padding: .8em 1.5em;
     border: none;
-    border-radius: 4px;
+    border-radius: 2em;
     cursor: pointer;
     font-weight: bold;
-    transition: background-color .25s cubic-bezier(.5,.25,.25,.75);
+    transition: background-color .25s ease, color .25s ease;
 }
   
 input[type=submit]:hover {
-    transition: background-color .25s cubic-bezier(.5,.25,.25,.75);
-    background-color: #147018;
+    transition: background-color .25s ease, color .25s ease;
+    color: #2c4b2c;
+    background-color: white;
 }
 
 input[type=number] {
-    width: auto;
+    width: 3em;
 }
 
 label {
     display: block;
     margin-top: 1em;
+    margin-bottom: .2em;
 }
 
 /* AUTOCOMPLETE */
