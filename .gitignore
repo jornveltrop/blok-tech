@@ -12,3 +12,9 @@ logs/
 
 # Uitzonderingen
 !logs/example.log
+
+# config files
+.eslitrc
+Procfile
+.vscode
+.prettierrc
