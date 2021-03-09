@@ -6,8 +6,8 @@ function previewProfilePic() {
   
   function setPreviewProfilePic() {
     profilePic.src=URL.createObjectURL(event.target.files[0]);
-  };
-};
+  }
+}
 
 
 // Toggle favorite
@@ -21,16 +21,16 @@ function toggleFavorite() {
   function toggleFavorite() {
     starFilled.classList.toggle("display");
     starUnfilled.classList.toggle("display");
-  };
-};
+  }
+}
 
 
 // Activate scripts
 if (document.URL.indexOf("/profile/") > -1 ) { 
   toggleFavorite();
-};
+}
 
 if (document.URL.indexOf("/addProfile") > -1 ) { 
   previewProfilePic();
   toggleFavorite();
-};
+}

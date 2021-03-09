@@ -1,0 +1,53 @@
+{
+    "cSpell.words": [
+        "adoption",
+        "customizen",
+        "dark",
+        "edit",
+        "extenties",
+        "flex",
+        "mirzaei",
+        "profile",
+        "sahand",
+        "theme",
+        "visual",
+        "wireframe",
+        "wireframes"
+    ],
+    "cSpell.ignoreWords": [
+        "purrweb",
+        "steitle"
+    ],
+    "cSpell.language": "nl,en",
+    "cSpell.enableFiletypes": [
+        "!asciidoc",
+        "!c",
+        "!cpp",
+        "!csharp",
+        "!css",
+        "!go",
+        "!graphql",
+        "!haskell",
+        "!jade",
+        "!java",
+        "!javascript",
+        "!javascriptreact",
+        "!json",
+        "!jsonc",
+        "!latex",
+        "!less",
+        "!php",
+        "!plaintext",
+        "!pug",
+        "!python",
+        "!restructuredtext",
+        "!rust",
+        "!scala",
+        "!scss",
+        "!text",
+        "!typescript",
+        "!typescriptreact",
+        "!yaml",
+        "!yml"
+    ]
+}
