@@ -17,7 +17,7 @@ Al sinds jaar en dag zijn mensen dol op honden. Niets is leuker voor een baasje 
 
 Maar sommige baasjes zijn soms wat eenzaam en willen wel eens nieuwe baasjes met hun hond(en) ontmoeten. Kunnen we daar niet eens iets voor regelen?
 
-Hondenmaatje is een app voor deze baasjes met een hond die nieuwe mensen willen ontmoeten. Door gematcht te worden aan een ander baasje van een hond, kunnen ze af en toe samen met de honden een stukje kunnen gaan wandelen.
+Hondenmaatje is een app voor deze baasjes met een hond die nieuwe mensen willen ontmoeten. Door gematcht te worden aan een ander baasje van een hond, kunnen ze af en toe samen met de honden een stukje gaan wandelen.
 
 Zo kun je met hondenmaatje met andere baasjes chatten, opslaan als favorieten, maar ook een afspraak plannen om erop uit te gaan met de honden. Op basis van je voorkeuren, bijvoorbeeld jouw favoriete hondenras, kun je voorgesteld worden aan baasjes.
 
