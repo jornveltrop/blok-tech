@@ -14,7 +14,7 @@ logs/
 !logs/example.log
 
 # config files
-.eslitrc
+.eslintrc
 Procfile
 .vscode
 .prettierrc
