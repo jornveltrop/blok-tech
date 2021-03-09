@@ -20,7 +20,7 @@ async function connectDB() {
     const options = { useUnifiedTopology: true };
     const client = new MongoClient(uri, options);
     await client.connect();
-    db = client.db(dbName);
+    db = await client.db(dbName);
 }
 connectDB()
     .then(() => {
