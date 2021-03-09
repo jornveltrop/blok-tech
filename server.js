@@ -100,7 +100,7 @@ app.get('/addProfile', (req, res) => {
 
 app.post('/addProfile', upload.single('prPic'), async (req,res) => {
    const id = slug(req.body.fname + req.body.lname);
-   const prPicPath = "/uploads/" + req.file.filename;
+   const prPicPath = "uploads/" + req.file.filename;
    const profiel = {"id": id, "firstName": req.body.fname, "lastName": req.body.lname, 'profileImg': prPicPath, "city": req.body.city, "age": req.body.age, "dogsCount": req.body.dogsCount, "about": req.body.about};
    await db.collection('profielen').insertOne(profiel);
    res.render('profile', {title: "New profile", profiel})
