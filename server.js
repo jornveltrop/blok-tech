@@ -15,7 +15,7 @@ const { MongoClient } = require('mongodb')
 const app = express();
 
 
-// DB Setup
+//Database Setup
 let db = null;
 
 async function connectDB() {
@@ -55,7 +55,7 @@ const storage = multer.diskStorage({
    },
 
    filename: function (req, file, callback){
-      callback(null, Date.now() + "-" + file.originalname)
+      callback(null, Date.now() + '-' + file.originalname)
    }
 });
 
@@ -86,7 +86,7 @@ app.get('/profile/:userId', async (req, res) => {
 
    const profiel = profielen.find(profiel => profiel.id == req.params.userId);
    if (profiel === undefined) {
-      res.status(404).send("Sorry deze pagina is niet beschikbaar!")
+      res.status(404).send('Sorry deze pagina is niet beschikbaar!')
    }
    else {
       res.render('profile', {title:'Profiel test', profiel, dogs});
@@ -100,16 +100,16 @@ app.get('/addProfile', (req, res) => {
 
 app.post('/addProfile', upload.single('prPic'), async (req,res) => {
    const id = slug(req.body.fname + req.body.lname);
-   const prPicPath = "uploads/" + req.file.filename;
-   const profiel = {"id": id, "firstName": req.body.fname, "lastName": req.body.lname, 'profileImg': prPicPath, "city": req.body.city, "age": req.body.age, "dogsCount": req.body.dogsCount, "about": req.body.about};
+   const prPicPath = 'uploads/' + req.file.filename;
+   const profiel = {'id': id, 'firstName': req.body.fname, 'lastName': req.body.lname, 'profileImg': prPicPath, 'city': req.body.city, 'age': req.body.age, 'dogsCount': req.body.dogsCount, 'about': req.body.about};
    await db.collection('profielen').insertOne(profiel);
-   res.render('profile', {title: "New profile", profiel})
+   res.render('profile', {title: 'New profile', profiel})
  });
 
 
 //404
 app.use(function (req, res, next) {
-   res.status(404).send("Sorry deze pagina is niet beschikbaar!")
+   res.status(404).send('Sorry deze pagina is niet beschikbaar!')
 }) 
 
 
