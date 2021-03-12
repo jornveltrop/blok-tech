@@ -80,7 +80,7 @@ app.get('/', async (req, res) => {
 
 //Profile page
 app.get('/profile/:userId', async (req, res) => {
-   connectDB()
+   await connectDB()
    .then(() => {
       //Succesvolle verbinding
       console.log('We have a connection to Mongo!')
@@ -107,21 +107,11 @@ app.get('/profile/:userId', async (req, res) => {
 
 //Add a profile
 app.get('/addProfile', (req, res) => {
-   connectDB()
-   .then(() => {
-      //Succesvolle verbinding
-      console.log('We have a connection to Mongo!')
-   })
-   .catch( error => {
-      //Error bij verbinden
-      console.log(error)
-   });
-
    res.render('addProfile', {title:'Profiel toevoegen'});
 });
 
 app.post('/addProfile', upload.single('prPic'), async (req,res) => {
-   connectDB()
+   await connectDB()
    .then(() => {
       //Succesvolle verbinding
       console.log('We have a connection to Mongo!')
