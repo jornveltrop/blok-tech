@@ -1,0 +1,48 @@
+<body class="addProfile bgGreen">
+    <header>
+        <nav>
+            <a href="../{{profiel.id}}">
+                <img src="/images/arrowLeft.svg">
+            </a>
+            <h2>Profiel aanpassen</h2>
+        </nav>
+    </header>
+    
+    <main>
+        <form action="/profile/{{profiel.id}}/edit" method="post" enctype="multipart/form-data">
+            <label for="prPic" class="prPic">
+                <div>
+                    <img id="profilePic" src="/{{profiel.profileImg}}">
+                    <span><img src="/images/upload.svg"></span>
+                </div>
+                <span>
+                    <img src="/images/camera.svg">
+                    <p>Profiel foto wijzigen</p>   
+                </span>
+            </label>
+            <input id="prPic" type="file" name="prPic" accept="image/*">
+
+            <label for="fname">Voornaam:</label>
+            <input id="fname" type="text" name="fname" value="{{profiel/firstName}}" required>
+
+            <label for="lname">Achternaam:</label>
+            <input id="lname" type="text" name="lname" value="{{profiel/lastName}}" required>
+
+            <label for="city">Woonplaats:</label>
+            <input id="city" type="text" name="city" value="{{profiel/city}}" required>
+
+            <label for="age">Leeftijd:</label>
+            <input id="age" type="number" name="age" value="{{profiel/age}}" required>
+            
+            <label for="dogsCount">Aantal honden:</label>
+            <input id="dogsCount" type="number" name="dogsCount" value="{{profiel/dogsCount}}" required>
+
+            <label for="about">Over mij:</label>
+            <textarea name="about" id="about" cols="30" rows="10">{{profiel.about}}</textarea>
+
+            <input type="submit" value="Opslaan">
+        </form>
+    </main>
+
+    <script src="./js/script.js"></script>
+</body>

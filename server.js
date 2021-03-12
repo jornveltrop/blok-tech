@@ -80,7 +80,7 @@ app.get('/', async (req, res) => {
 
 //Profile page
 app.get('/profile/:userId', async (req, res) => {
-   connectDB()
+   await connectDB()
    .then(() => {
       //Succesvolle verbinding
       console.log('We have a connection to Mongo!')
@@ -101,27 +101,17 @@ app.get('/profile/:userId', async (req, res) => {
       res.status(404).send('Sorry deze pagina is niet beschikbaar!')
    }
    else {
-      res.render('profile', {title:'Profiel test', profiel, dogs});
+      res.render('profile', {title:'Profiel edit', profiel, dogs});
    }
 });
 
 //Add a profile
 app.get('/addProfile', (req, res) => {
-   connectDB()
-   .then(() => {
-      //Succesvolle verbinding
-      console.log('We have a connection to Mongo!')
-   })
-   .catch( error => {
-      //Error bij verbinden
-      console.log(error)
-   });
-
    res.render('addProfile', {title:'Profiel toevoegen'});
 });
 
 app.post('/addProfile', upload.single('prPic'), async (req,res) => {
-   connectDB()
+   await connectDB()
    .then(() => {
       //Succesvolle verbinding
       console.log('We have a connection to Mongo!')
@@ -135,6 +125,61 @@ app.post('/addProfile', upload.single('prPic'), async (req,res) => {
    const prPicPath = 'uploads/' + req.file.filename;
    const profiel = {'id': id, 'firstName': req.body.fname, 'lastName': req.body.lname, 'profileImg': prPicPath, 'city': req.body.city, 'age': req.body.age, 'dogsCount': req.body.dogsCount, 'about': req.body.about};
    await db.collection('profielen').insertOne(profiel);
+   res.render('profile', {title: 'New profile', profiel})
+ });
+
+//Edit profile
+app.get('/profile/:userId/edit', async (req, res) => {
+   await connectDB()
+   .then(() => {
+      //Succesvolle verbinding
+      console.log('We have a connection to Mongo!')
+   })
+   .catch( error => {
+      //Error bij verbinden
+      console.log(error)
+   });
+
+   let profielen = {};
+   profielen = await db.collection('profielen').find().toArray();
+
+   let dogs = {};
+   dogs = await db.collection('dogs').find().toArray();
+
+   const profiel = profielen.find(profiel => profiel.id == req.params.userId);
+   if (profiel === undefined) {
+      res.status(404).send('Sorry deze pagina is niet beschikbaar!')
+   }
+   else {
+      res.render('profileEdit', {title:'Profiel Edit', profiel, dogs});
+   }
+});
+
+app.post('/profile/:userId/edit', upload.single('prPic'), async (req,res) => {
+   await connectDB()
+   .then(() => {
+      //Succesvolle verbinding
+      console.log('We have a connection to Mongo!')
+   })
+   .catch( error => {
+      //Error bij verbinden
+      console.log(error)
+   });
+
+   const prPicPath = '';
+
+   const id = slug(req.body.fname + req.body.lname);
+
+   if (typeof req.body.image !== "undefined") {
+      // code
+      const prPicPath = 'uploads/' + req.file.filename;
+    } else if (typeof req.body.image === "undefined") {
+      // code
+      console.log("File is not uploaded");
+    }
+
+   const profiel = {'id': id, 'firstName': req.body.fname, 'lastName': req.body.lname, 'profileImg': prPicPath, 'city': req.body.city, 'age': req.body.age, 'dogsCount': req.body.dogsCount, 'about': req.body.about};
+   await db.collection('profielen').updateOne(profiel);
    res.render('profile', {title: 'New profile', profiel})
  });
 
