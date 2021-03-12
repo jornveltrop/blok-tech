@@ -24,15 +24,7 @@ async function connectDB() {
    await client.connect();
    db = await client.db(dbName)
 };
-connectDB()
-   .then(() => {
-      //Succesvolle verbinding
-      console.log('We have a connection to Mongo!')
-   })
-   .catch( error => {
-      //Error bij verbinden
-      console.log(error)
-   });
+
 
 
 //View engine setup
@@ -71,6 +63,16 @@ const upload = multer({
 
 //Home - simple overview profiles
 app.get('/', async (req, res) => {
+   await connectDB()
+   .then(() => {
+      //Succesvolle verbinding
+      console.log('We have a connection to Mongo!')
+   })
+   .catch( error => {
+      //Error bij verbinden
+      console.log(error)
+   });
+
    let profielen = {};
    profielen = await db.collection('profielen').find().toArray();
    res.render('index', {title:'Home', profielen});
@@ -78,6 +80,16 @@ app.get('/', async (req, res) => {
 
 //Profile page
 app.get('/profile/:userId', async (req, res) => {
+   connectDB()
+   .then(() => {
+      //Succesvolle verbinding
+      console.log('We have a connection to Mongo!')
+   })
+   .catch( error => {
+      //Error bij verbinden
+      console.log(error)
+   });
+
    let profielen = {};
    profielen = await db.collection('profielen').find().toArray();
 
@@ -95,10 +107,30 @@ app.get('/profile/:userId', async (req, res) => {
 
 //Add a profile
 app.get('/addProfile', (req, res) => {
+   connectDB()
+   .then(() => {
+      //Succesvolle verbinding
+      console.log('We have a connection to Mongo!')
+   })
+   .catch( error => {
+      //Error bij verbinden
+      console.log(error)
+   });
+
    res.render('addProfile', {title:'Profiel toevoegen'});
 });
 
 app.post('/addProfile', upload.single('prPic'), async (req,res) => {
+   connectDB()
+   .then(() => {
+      //Succesvolle verbinding
+      console.log('We have a connection to Mongo!')
+   })
+   .catch( error => {
+      //Error bij verbinden
+      console.log(error)
+   });
+
    const id = slug(req.body.fname + req.body.lname);
    const prPicPath = 'uploads/' + req.file.filename;
    const profiel = {'id': id, 'firstName': req.body.fname, 'lastName': req.body.lname, 'profileImg': prPicPath, 'city': req.body.city, 'age': req.body.age, 'dogsCount': req.body.dogsCount, 'about': req.body.about};
